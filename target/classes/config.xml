@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		https://www.springframework.org/schema/context/spring-context.xsd">
+
+  <context:component-scan base-package="com.app.mod"></context:component-scan>
+ <!--
+ It creates an object of classes annotated with @Component present within the package "com.app.mod"
+ It creates an object inside IOC container
+ -->
+
+  <bean id="diff" class="com.app.mod.Diff">
+  <!--
+   It creates an object of class "Diff" with id "diff" inside IOC container
+   It uses default constructor of class "Diff" for object creation if constructor-arg is not defined in xml
+   If constructor-arg is defined with n arguments then corresponding constructor with n parameters is called for object creation
+  -->
+
+    <property name="sum" ref="sum"></property>
+    <!--
+    It initializes the reference variable "sum" in class "Diff" with the id of the reference class
+    ref="sum", where "sum" is the id of the reference class "Sum"
+    It is equivalent to @Autowired at the variable "sum" in class "Diff"
+    -->
+
+<!-- *********************************************************************** -->
+  <!-- <bean id="sum" class="com.app.mod.Sum"> -->
+  <!--
+   It creates an object of class "Sum" with id "sum" inside IOC container
+   It uses default constructor of class "Sum" for object creation if constructor-arg is not defined in xml
+   If constructor-arg is defined with n arguments then corresponding constructor with n parameters is called for object creation
+  -->
+
+     <!-- Setter/Getter Injection -->
+	<!-- <property name="a" value="1"></property>
+	 <property name="b" value="9"></property> -->
+     <!--
+     It initializes the variable declared in class "Sum" as a=1 & b=9
+     It uses setter & getter methods in class "Sum" for initializing variables
+     -->
+
+	 <!-- Constructor Injection -->
+	<!-- <constructor-arg value="99"></constructor-arg>
+	 <constructor-arg value="9"></constructor-arg> -->
+     <!--
+     It declare & initializes the constructor with n parameters in class "Sum" if constructor-arg is defined with n arguments in xml
+     It is called during object creation for class "Sum" using bean id & class in xml
+     -->
+<!-- *********************************************************************** -->
+
+  </bean>
+</beans>
