@@ -1,7 +1,7 @@
 
 # SPRING CORE
 
-It is a demo project for spring core framework.
+A demo project for spring core framework.
 
 ## TECH USED
 
